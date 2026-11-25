@@ -1,0 +1,232 @@
+{
+	"name": "PL_REST API",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy data1",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "RestSource",
+						"httpRequestTimeout": "00:01:40",
+						"requestInterval": "00.00:00:00.010",
+						"requestMethod": "GET",
+						"paginationRules": {
+							"supportRFC5988": "true"
+						}
+					},
+					"sink": {
+						"type": "ParquetSink",
+						"storeSettings": {
+							"type": "AzureBlobFSWriteSettings"
+						},
+						"formatSettings": {
+							"type": "ParquetWriteSettings"
+						}
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"path": "$['id']"
+								},
+								"sink": {
+									"name": "id",
+									"type": "Int64"
+								}
+							},
+							{
+								"source": {
+									"path": "$['Sku']"
+								},
+								"sink": {
+									"name": "Sku",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['TP 1']"
+								},
+								"sink": {
+									"name": "tp1",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['TP 2']"
+								},
+								"sink": {
+									"name": "tp2",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['index']"
+								},
+								"sink": {
+									"name": "index",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['Weight']"
+								},
+								"sink": {
+									"name": "Weight",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['Catalog']"
+								},
+								"sink": {
+									"name": "Catalog",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['MRP Old']"
+								},
+								"sink": {
+									"name": "MRPOld",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['Ajio MRP']"
+								},
+								"sink": {
+									"name": "AjioMRP",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['Category']"
+								},
+								"sink": {
+									"name": "Category",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['Style Id']"
+								},
+								"sink": {
+									"name": "StyleId",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['Paytm MRP']"
+								},
+								"sink": {
+									"name": "PaytmMRP",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['Amazon MRP']"
+								},
+								"sink": {
+									"name": "AmazonMRP",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['Myntra MRP']"
+								},
+								"sink": {
+									"name": "MyntraMRP",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['Flipkart MRP']"
+								},
+								"sink": {
+									"name": "FlipkartMRP",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['Limeroad MRP']"
+								},
+								"sink": {
+									"name": "LimeroadMRP",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['Snapdeal MRP']"
+								},
+								"sink": {
+									"name": "SnapdealMRP",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['Final MRP Old']"
+								},
+								"sink": {
+									"name": "FinalMRPOld",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['Amazon FBA MRP']"
+								},
+								"sink": {
+									"name": "AmazonFBAMRP",
+									"type": "String"
+								}
+							}
+						]
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "DS_RestAPI",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "Parquet1",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2026-11-22T01:45:34Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

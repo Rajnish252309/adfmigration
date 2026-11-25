@@ -1,0 +1,16 @@
+{
+	"name": "adf-dev-chevronproject",
+	"properties": {
+		"trustModeClaimForMi": {
+			"value": "Disabled",
+			"editable": true,
+			"isExplicitlySet": false
+		}
+	},
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "80b0deab-6090-48ed-a8e4-f0d4054cfab6",
+		"tenantId": "56484e57-1dc4-4661-8b93-8970ecacf3cb"
+	}
+}
